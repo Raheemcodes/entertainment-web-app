@@ -1,0 +1,52 @@
+@use '@/shared/shared' as *;
+
+.nav {
+  position: absolute;
+  @include centered();
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include breakpoint(toRem(1440)) {
+    top: toRem(136);
+  }
+}
+
+.nav-list {
+  list-style: none;
+  @include centered();
+  gap: toRem(24);
+
+  @include breakpoint($md) {
+    gap: toRem(32);
+  }
+  @include breakpoint(toRem(1440)) {
+    flex-direction: column;
+    gap: toRem(40);
+  }
+}
+
+.nav-item {
+  @include display-flex();
+  width: toRem(16);
+  cursor: pointer;
+
+  @include breakpoint($md) {
+    width: toRem(20);
+  }
+
+  svg > path {
+    @include transition(fill, 0.2s);
+  }
+
+  &.active {
+    svg > path {
+      fill: var(--pure-white);
+    }
+  }
+
+  @include hover(fill, 0.2s) {
+    svg > path {
+      fill: var(--pure-white);
+    }
+  }
+}

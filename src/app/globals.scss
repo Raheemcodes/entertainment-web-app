@@ -1,5 +1,5 @@
-@import '../shared/shared';
-@import '../typography';
+@use '../shared/shared' as *;
+@use '../typography' as *;
 
 * {
   box-sizing: border-box;
@@ -21,10 +21,17 @@ html,
 body {
   width: 100%;
   height: 100%;
+}
+
+body {
   font-family: var(--font);
   font-size: toRem(15);
+  color: var(--pure-White);
   background: var(--dark-blue);
   overflow: auto;
-  overflow-x: hidden;
   @include custom-scrollbar();
+
+  @include breakpoint(toRem(1440)) {
+    @include display-flex();
+  }
 }
