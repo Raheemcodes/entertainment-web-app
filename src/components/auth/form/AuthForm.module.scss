@@ -2,7 +2,7 @@
 
 .form {
   width: 100%;
-  max-width: 400px;
+  max-width: toRem(400);
   background: var(--semi-dark-blue);
   padding: toRem(24) toRem(24) toRem(32);
   border-radius: toRem(10);
