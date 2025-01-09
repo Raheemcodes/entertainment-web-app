@@ -1,11 +1,19 @@
 @use '@/shared/shared' as *;
 
 .container {
-  @include column-centered();
+  @include column-centered-start();
   gap: toRem(58);
   width: 100%;
   height: 100%;
   padding: toRem(48) toRem(24);
+
+  @include breakpoint($md) {
+    padding: toRem(80) toRem(32);
+  }
+
+  @include breakpoint(toRem(1440)) {
+    padding: toRem(78) toRem(48);
+  }
 }
 
 .logo {

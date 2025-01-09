@@ -2,8 +2,9 @@
 
 .form {
   width: 100%;
+  max-width: 400px;
   background: var(--semi-dark-blue);
-  padding: toRem(24);
+  padding: toRem(24) toRem(24) toRem(32);
   border-radius: toRem(10);
 }
 
@@ -28,6 +29,7 @@
   @include display-flex();
   gap: toRem(4);
   border-bottom: toRem(1) solid var(--greyish-blue);
+  transition: border-bottom 0.3s ease-out;
 
   &:has(input:focus) {
     border-bottom: toRem(1) solid var(--pure-white);
@@ -81,5 +83,32 @@
     line-height: normal;
     flex-shrink: 0;
     margin-top: toRem(2);
+  }
+}
+
+.ps {
+  color: var(--pure-white);
+  font-feature-settings: 'liga' off, 'clig' off;
+  text-align: center;
+
+  /* Body (M) */
+  font-family: 'Outfit', serif;
+  font-size: toRem(15);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+
+  margin-top: toRem(24);
+
+  .redirect-btn {
+    color: var(--red);
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Body (M) */
+    font-family: 'Outfit', serif;
+    font-size: toRem(15);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
   }
 }

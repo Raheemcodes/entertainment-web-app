@@ -1,6 +1,7 @@
 @use '@/shared/shared' as *;
 
 .button {
+  @include centered();
   color: var(--pure-white);
   text-align: center;
   font-feature-settings: 'liga' off, 'clig' off;
@@ -12,6 +13,13 @@
   font-weight: 400;
   line-height: normal;
 
+  width: 100%;
   border-radius: 6px;
   background: var(--red);
+  padding: toRem(15) 0;
+
+  @include hover(all, 0.2s) {
+    background: var(--pure-white);
+    color: var(--semi-dark-blue);
+  }
 }

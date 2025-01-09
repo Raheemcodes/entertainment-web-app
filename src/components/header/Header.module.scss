@@ -1,6 +1,8 @@
 @use '@/shared/shared' as *;
 
 .header {
+  flex-shrink: 0;
+
   @include breakpoint($md) {
     padding: toRem(24) toRem(24) 0;
   }

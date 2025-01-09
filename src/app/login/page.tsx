@@ -25,6 +25,11 @@ const LoginPage = (): JSX.Element => {
         </div>
 
         <SubmitButton>Login to your account</SubmitButton>
+
+        <p className={classes['ps']}>
+          Don’t have an account?{' '}
+          <button className={classes['redirect-btn']}>Sign Up</button>
+        </p>
       </AuthForm>
     </AuthLayout>
   );
