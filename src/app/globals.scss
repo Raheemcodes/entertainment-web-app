@@ -35,3 +35,9 @@ body {
     @include display-flex();
   }
 }
+
+button {
+  background: #0000;
+  outline: none;
+  border: none;
+}

@@ -1,0 +1,14 @@
+@use '@/shared/shared' as *;
+
+.container {
+  @include column-centered();
+  gap: toRem(58);
+  width: 100%;
+  height: 100%;
+  padding: toRem(48) toRem(24);
+}
+
+.logo {
+  display: flex;
+  width: toRem(32);
+}

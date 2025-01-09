@@ -1,8 +1,33 @@
 import { JSX } from 'react';
-import classes from './login.module.scss';
+import classes from '@/components/auth/form/AuthForm.module.scss';
+import AuthLayout from '@/components/auth/layout/AuthLayout';
+import AuthForm from '@/components/auth/form/AuthForm';
+import SubmitButton from '@/components/submit-btn/SubmitButton';
 
 const LoginPage = (): JSX.Element => {
-  return <h1>Login</h1>;
+  return (
+    <AuthLayout>
+      <AuthForm>
+        <h1 className={classes['title']}>Login</h1>
+
+        <div className={classes['form-field']}>
+          <div className={`${classes['input-field']}`}>
+            <input type='email' name='email' placeholder='Email address' />
+            <div className={classes['error-msg']}>Can’t be empty</div>
+          </div>
+        </div>
+
+        <div className={classes['form-field']}>
+          <div className={`${classes['input-field']} ${classes['invalid']}`}>
+            <input type='password' name='password' placeholder='Password' />
+            <div className={classes['error-msg']}>Password</div>
+          </div>
+        </div>
+
+        <SubmitButton>Login to your account</SubmitButton>
+      </AuthForm>
+    </AuthLayout>
+  );
 };
 
 export default LoginPage;

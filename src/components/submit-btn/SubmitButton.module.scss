@@ -1,0 +1,17 @@
+@use '@/shared/shared' as *;
+
+.button {
+  color: var(--pure-white);
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Body (M) */
+  font-family: 'Outfit', serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  border-radius: 6px;
+  background: var(--red);
+}
