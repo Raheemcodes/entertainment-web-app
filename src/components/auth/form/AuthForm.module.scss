@@ -16,13 +16,15 @@
   font-family: 'Outfit', serif;
   font-size: toRem(32);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: normal;
   letter-spacing: toRem(-0.5);
 }
 
 .form-field {
+  @include column-flex();
   margin: toRem(40) 0;
+  gap: toRem(32);
 }
 
 .input-field {
@@ -30,6 +32,7 @@
   gap: toRem(4);
   border-bottom: toRem(1) solid var(--greyish-blue);
   transition: border-bottom 0.3s ease-out;
+  padding: 0 toRem(16);
 
   &:has(input:focus) {
     border-bottom: toRem(1) solid var(--pure-white);
@@ -56,11 +59,11 @@
     font-family: 'Outfit', serif;
     font-size: toRem(15);
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: normal;
 
     background-color: #0000;
-    padding: 0 toRem(16) toRem(18);
+    padding: 0 0 toRem(18);
     border: none;
     outline: none;
 
@@ -79,7 +82,7 @@
     font-family: 'Outfit', serif;
     font-size: toRem(13);
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: normal;
     flex-shrink: 0;
     margin-top: toRem(2);
@@ -110,5 +113,11 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    text-decoration: underline;
+    text-decoration-color: #0000;
+
+    @include hover(all, 0.2s) {
+      text-decoration-color: var(--red);
+    }
   }
 }

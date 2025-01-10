@@ -17,6 +17,11 @@
   border-radius: 6px;
   background: var(--red);
   padding: toRem(15) 0;
+  @include transition(all, 0.2s);
+
+  &:disabled {
+    opacity: 0.5;
+  }
 
   @include hover(all, 0.2s) {
     background: var(--pure-white);
