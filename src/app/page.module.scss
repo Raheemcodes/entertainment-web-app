@@ -1,0 +1,46 @@
+@use '@/shared/shared' as *;
+
+.container {
+  @include column-flex();
+  gap: toRem(24);
+
+  @include breakpoint($md) {
+    gap: toRem(40);
+  }
+
+  section {
+    @include column-flex();
+    gap: toRem(16);
+
+    @include breakpoint($md) {
+      gap: toRem(24);
+    }
+  }
+}
+
+.search-box,
+.title {
+  padding-left: toRem(16);
+
+  @include breakpoint($md) {
+    padding-left: toRem(24);
+  }
+  @include breakpoint(toRem(1440)) {
+    padding-left: toRem(36);
+  }
+}
+
+.title {
+  font-family: 'Outfit', serif;
+  font-size: toRem(20);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: toRem(-0.312);
+  color: var(--pure-white, #fff);
+
+  @include breakpoint($md) {
+    font-size: toRem(32);
+    letter-spacing: toRem(-0.5);
+  }
+}

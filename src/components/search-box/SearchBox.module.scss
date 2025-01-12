@@ -1,0 +1,50 @@
+@use '@/shared/shared' as *;
+
+.container {
+  @include display-flex();
+  gap: toRem(16);
+
+  @include breakpoint($md) {
+    gap: toRem(24);
+  }
+
+  input {
+    font-family: 'Outfit', serif;
+    font-size: toRem(16);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    color: var(--pure-white);
+
+    width: toRem(240);
+    background-color: #0000;
+    padding: toRem(4) 0 toRem(8);
+    outline: none;
+    border: none;
+    border-bottom: toRem(1) solid #0000;
+    @include transition(border, 0.2s);
+
+    &::placeholder {
+      color: var(--pure-white);
+      opacity: 0.5;
+    }
+
+    &:focus {
+      border-bottom: toRem(1) solid var(--greyish-blue);
+    }
+
+    @include breakpoint($md) {
+      font-size: toRem(24);
+      width: toRem(400);
+    }
+  }
+
+  .search-icon {
+    @include display-flex();
+    width: toRem(24);
+
+    @include breakpoint($md) {
+      width: toRem(32);
+    }
+  }
+}

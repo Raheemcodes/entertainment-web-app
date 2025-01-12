@@ -38,6 +38,14 @@ body {
 
 main {
   width: 100%;
+  padding: toRem(24) 0;
+
+  @include breakpoint($md) {
+    padding: toRem(32) 0;
+  }
+  @include breakpoint(toRem(1440)) {
+    padding: toRem(64) 0;
+  }
 }
 
 button {

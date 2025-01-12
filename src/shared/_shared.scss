@@ -89,9 +89,16 @@
   @return $remValue;
 }
 
+@mixin inset() {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
 @mixin custom-scrollbar() {
   @media (pointer: fine) and (hover: hover) {
-    scrollbar-color: #b1afaf #0000;
+    scrollbar-color: #383637 #0000;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar {
@@ -99,14 +106,14 @@
       height: toRem(8); /* width of the entire scrollbar */
     }
     &::-webkit-scrollbar-track {
-      background: transparent; /* color of the tracking area */
+      background: #0000; /* color of the tracking area */
     }
     &::-webkit-scrollbar-thumb {
-      background: #b1afaf;
-      border-radius: 14px; /* creates padding around scroll thumb */
+      background: #383637;
+      border-radius: toRem(14); /* creates padding around scroll thumb */
 
       &:hover {
-        background: #858181;
+        background: #000;
       }
     }
   }

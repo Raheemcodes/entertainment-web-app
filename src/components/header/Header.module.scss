@@ -21,7 +21,7 @@
 
   @include breakpoint($md) {
     padding: toRem(20) toRem(24);
-    border-radius: 10px;
+    border-radius: toRem(10);
   }
 
   @include breakpoint(toRem(1440)) {
@@ -36,7 +36,7 @@
   cursor: pointer;
 
   @include breakpoint($md) {
-    width: 32px;
+    width: toRem(32);
   }
 
   svg > path {
@@ -68,7 +68,7 @@
   cursor: pointer;
 
   @include breakpoint($md) {
-    width: 32px;
+    width: toRem(32);
   }
   @include breakpoint(toRem(1440)) {
     align-self: flex-end;

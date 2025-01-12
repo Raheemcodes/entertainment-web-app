@@ -1,9 +1,9 @@
-import { JSX } from 'react';
-import classes from './HeaderNav.module.scss';
 import HomeIcon from '@/components/icons/HomeIcom';
 import MoviesIcon from '@/components/icons/MoviesIcon';
+import NavBookmarkIcon from '@/components/icons/NavBookmarkIcon';
 import ShowsIcon from '@/components/icons/ShowsIcon';
-import BookmarkIcon from '@/components/icons/BookmarkIcon';
+import { JSX } from 'react';
+import classes from './HeaderNav.module.scss';
 
 const HeaderNav = (): JSX.Element => {
   return (
@@ -19,7 +19,7 @@ const HeaderNav = (): JSX.Element => {
           <ShowsIcon />
         </li>
         <li className={classes['nav-item']}>
-          <BookmarkIcon />
+          <NavBookmarkIcon />
         </li>
       </ul>
     </nav>

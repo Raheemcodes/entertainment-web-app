@@ -7,7 +7,7 @@ import AuthLayout from '@/components/auth/layout/AuthLayout';
 import SubmitButton from '@/components/submit-btn/SubmitButton';
 import useValidation from '@/hooks/use-validation';
 import Link from 'next/link';
-import { FormEventHandler, JSX, useRef } from 'react';
+import { JSX, useRef } from 'react';
 
 const SignupPage = (): JSX.Element => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -15,17 +15,6 @@ const SignupPage = (): JSX.Element => {
   const password = useValidation('invalid');
   const confirmPassword = useValidation('invalid', password.value);
   const formIsValid = formRef.current?.checkValidity();
-
-  const sumbitHandler: FormEventHandler = (event) => {
-    event.preventDefault();
-    const body = {
-      email: email.value,
-      password: password.value,
-      confirmPassword: confirmPassword.value,
-    };
-
-    console.table(body);
-  };
 
   return (
     <AuthLayout>

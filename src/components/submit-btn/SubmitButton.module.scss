@@ -8,13 +8,13 @@
 
   /* Body (M) */
   font-family: 'Outfit', serif;
-  font-size: 15px;
+  font-size: toRem(15);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 
   width: 100%;
-  border-radius: 6px;
+  border-radius: toRem(6);
   background: var(--red);
   padding: toRem(15) 0;
   @include transition(all, 0.2s);
