@@ -3,9 +3,15 @@
 .container {
   @include column-flex();
   gap: toRem(24);
+  padding: 0 toRem(16);
+  overflow-x: hidden;
 
   @include breakpoint($md) {
     gap: toRem(40);
+    padding: 0 toRem(24);
+  }
+  @include breakpoint(toRem(1440)) {
+    padding: 0 toRem(36);
   }
 
   section {
@@ -15,18 +21,6 @@
     @include breakpoint($md) {
       gap: toRem(24);
     }
-  }
-}
-
-.search-box,
-.title {
-  padding-left: toRem(16);
-
-  @include breakpoint($md) {
-    padding-left: toRem(24);
-  }
-  @include breakpoint(toRem(1440)) {
-    padding-left: toRem(36);
   }
 }
 

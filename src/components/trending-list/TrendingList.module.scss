@@ -6,13 +6,7 @@
   list-style: none;
   gap: toRem(16);
 
-  padding-left: toRem(16);
-
   @include breakpoint($md) {
-    padding-left: toRem(24);
     gap: toRem(40);
-  }
-  @include breakpoint(toRem(1440)) {
-    padding-left: toRem(36);
   }
 }

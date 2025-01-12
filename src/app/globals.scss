@@ -39,6 +39,7 @@ body {
 main {
   width: 100%;
   padding: toRem(24) 0;
+  overflow-x: hidden;
 
   @include breakpoint($md) {
     padding: toRem(32) 0;
