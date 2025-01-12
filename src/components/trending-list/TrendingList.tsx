@@ -7,6 +7,7 @@ import useSwiper from '@/hooks/use-swiper';
 
 const TrendingList = (): JSX.Element => {
   const swiper = useSwiper();
+
   return (
     <ul className={classes['list']} ref={swiper.ref}>
       <TrendingItem />
