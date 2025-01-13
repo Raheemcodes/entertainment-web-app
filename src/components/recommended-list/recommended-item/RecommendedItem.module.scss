@@ -1,43 +1,18 @@
 @use '@/shared/shared' as *;
 
 .item {
-  position: relative;
-  width: toRem(240);
-  height: toRem(140);
-  border-radius: toRem(8);
-  flex-shrink: 0;
-  overflow: hidden;
-
-  @include breakpoint($md) {
-    width: toRem(470);
-    height: toRem(230);
-  }
+  @include column-flex();
+  gap: 8px;
+  width: 100%;
 }
 
 .img-container {
   display: flex;
-  width: 100%;
-  height: 100%;
   position: relative;
+  width: 100%;
+  border-radius: 8px;
   background-color: lightgrey;
-
-  .gradient {
-    position: absolute;
-    width: 100%;
-    height: toRem(70);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0) 100%
-    );
-
-    @include breakpoint($md) {
-      height: toRem(100);
-    }
-  }
+  overflow: hidden;
 
   img {
     width: 100%;
@@ -55,6 +30,17 @@
     @include breakpoint($md) {
       display: none;
 
+      &.medium {
+        display: inline;
+      }
+    }
+    @include breakpoint(toRem(1440)) {
+      display: none;
+
+      &.medium {
+        display: none;
+      }
+
       &.large {
         display: inline;
       }
@@ -65,9 +51,6 @@
 .content {
   @include column-flex();
   gap: toRem(4);
-  position: absolute;
-  left: toRem(16);
-  bottom: toRem(16);
 
   @include breakpoint($md) {
     left: toRem(24);
@@ -85,7 +68,7 @@
 .type,
 .rating {
   font-family: 'Outfit', serif;
-  font-size: toRem(12);
+  font-size: toRem(11);
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -93,7 +76,7 @@
   opacity: 0.75;
 
   @include breakpoint($md) {
-    font-size: toRem(15);
+    font-size: toRem(13);
   }
 }
 
@@ -115,14 +98,14 @@
 
 .title {
   font-family: 'Outfit', serif;
-  font-size: toRem(15);
+  font-size: toRem(14);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   color: var(--pure-white);
 
   @include breakpoint($md) {
-    font-size: toRem(24);
+    font-size: toRem(18);
   }
 }
 

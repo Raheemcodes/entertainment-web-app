@@ -1,0 +1,17 @@
+@use '@/shared/shared' as *;
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 16px;
+
+  @include breakpoint($md) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px 30px;
+  }
+  @include breakpoint(toRem(1440)) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px 40px;
+  }
+}

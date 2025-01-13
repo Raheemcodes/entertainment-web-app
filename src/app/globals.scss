@@ -38,14 +38,16 @@ body {
 
 main {
   width: 100%;
-  padding: toRem(24) 0;
+  padding: toRem(24) 0 toRem(60);
+  overflow: auto;
   overflow-x: hidden;
+  @include custom-scrollbar();
 
   @include breakpoint($md) {
-    padding: toRem(32) 0;
+    padding: toRem(32) 0 toRe(56);
   }
   @include breakpoint(toRem(1440)) {
-    padding: toRem(64) 0;
+    padding: toRem(64) 0 toRem(52);
   }
 }
 

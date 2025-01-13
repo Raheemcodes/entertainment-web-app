@@ -1,33 +1,39 @@
 import { JSX } from 'react';
-import classes from './TrendingItem.module.scss';
+import classes from './RecommendedItem.module.scss';
 import Image from 'next/image';
 import CicleIcon from '@/components/icons/CircleIcon';
 import MoviesCategoryIcon from '@/components/icons/MoviesCategoryIcon';
 import BookmarkIcon from '@/components/icons/BookmarkIcon';
 
-const TrendingItem = (): JSX.Element => {
+const RecommendedItem = (): JSX.Element => {
   return (
     <li className={classes['item']}>
       <div className={classes['img-container']}>
         <Image
-          src='/assets/thumbnails/beyond-earth/trending/small.jpg'
-          width={240}
+          src={'/assets/thumbnails/the-great-lands/regular/small.jpg'}
+          width={164}
+          height={110}
+          alt='The Great Lands'
+        />
+        <Image
+          className={classes['medium']}
+          src={'/assets/thumbnails/the-great-lands/regular/medium.jpg'}
+          width={220}
           height={140}
-          alt='Bottom Gear'
+          alt='The Great Lands'
         />
         <Image
           className={classes['large']}
-          src='/assets/thumbnails/beyond-earth/trending/large.jpg'
-          width={470}
-          height={230}
-          alt='Bottom Gear'
+          src={'/assets/thumbnails/the-great-lands/regular/large.jpg'}
+          width={280}
+          height={174}
+          alt='The Great Lands'
         />
-        <div className={classes['gradient']} />
-      </div>
 
-      <div className={classes['bookmark-container']}>
-        <div className={classes['bookmark']}>
-          <BookmarkIcon />
+        <div className={classes['bookmark-container']}>
+          <div className={classes['bookmark']}>
+            <BookmarkIcon />
+          </div>
         </div>
       </div>
 
@@ -51,12 +57,12 @@ const TrendingItem = (): JSX.Element => {
             <CicleIcon />
           </div>
 
-          <div className={classes['rating']}>PG</div>
+          <div className={classes['rating']}>E</div>
         </div>
-        <div className={classes['title']}>Beyond Earth</div>
+        <div className={classes['title']}>The Great Lands</div>
       </div>
     </li>
   );
 };
 
-export default TrendingItem;
+export default RecommendedItem;
