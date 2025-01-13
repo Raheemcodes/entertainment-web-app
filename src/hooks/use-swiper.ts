@@ -185,9 +185,6 @@ const setPositionByIndex = () => {
   } else if (currentIndex > 0 && currentIndex < lastSlide) {
     currentTranslate = currentIndex * -slideWidth;
   }
-  // else if (currentIndex == lastSlide) {
-  //     currentTranslate = currentIndex * -slideWidth;
-  //   }
 
   prevTranslate = currentTranslate;
   setSliderPosition();
