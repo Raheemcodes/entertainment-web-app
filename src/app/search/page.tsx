@@ -1,6 +1,6 @@
 import FilmList from '@/components/film-list/FilmList';
 import { SearchParams } from 'next/dist/server/request/search-params';
-import { JSX, Suspense } from 'react';
+import { JSX } from 'react';
 import classes from '../page.module.scss';
 
 export default async function SearchPage({
@@ -9,7 +9,6 @@ export default async function SearchPage({
   searchParams: Promise<SearchParams>;
 }): Promise<JSX.Element> {
   const { categories, key } = await searchParams;
-  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return (
     <section className={classes['section']} id='recommended'>

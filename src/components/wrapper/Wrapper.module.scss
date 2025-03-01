@@ -11,6 +11,7 @@
     padding: 0 toRem(24);
   }
   @include breakpoint(toRem(1440)) {
+    gap: toRem(48);
     padding: 0 toRem(36);
   }
 }

@@ -33,20 +33,4 @@
   @include breakpoint($md) {
     width: toRem(20);
   }
-
-  svg > path {
-    @include transition(fill, 0.2s);
-  }
-
-  &.active {
-    svg > path {
-      fill: var(--pure-white);
-    }
-  }
-
-  @include hover(fill, 0.2s) {
-    svg > path {
-      fill: var(--pure-white);
-    }
-  }
 }

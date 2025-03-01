@@ -1,0 +1,22 @@
+@use '@/shared/shared' as *;
+
+.link {
+  display: flex;
+  width: 100%;
+
+  svg > path {
+    @include transition(fill, 0.2s);
+  }
+
+  &.active {
+    svg > path {
+      fill: var(--pure-white);
+    }
+  }
+
+  @include hover(fill, 0.2s) {
+    svg > path {
+      fill: var(--red);
+    }
+  }
+}

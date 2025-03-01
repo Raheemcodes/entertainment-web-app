@@ -4,22 +4,31 @@ import NavBookmarkIcon from '@/components/icons/NavBookmarkIcon';
 import ShowsIcon from '@/components/icons/ShowsIcon';
 import { JSX } from 'react';
 import classes from './HeaderNav.module.scss';
+import NavLink from '@/components/nav-link/NavLink';
 
 const HeaderNav = (): JSX.Element => {
   return (
     <nav className={classes['nav']}>
       <ul className={classes['nav-list']}>
         <li className={classes['nav-item']}>
-          <HomeIcon />
+          <NavLink href='/'>
+            <HomeIcon />
+          </NavLink>
         </li>
         <li className={classes['nav-item']}>
-          <MoviesIcon />
+          <NavLink href='/movies'>
+            <MoviesIcon />
+          </NavLink>
         </li>
         <li className={classes['nav-item']}>
-          <ShowsIcon />
+          <NavLink href='/series'>
+            <ShowsIcon />
+          </NavLink>
         </li>
         <li className={classes['nav-item']}>
-          <NavBookmarkIcon />
+          <NavLink href='/bookmark'>
+            <NavBookmarkIcon />
+          </NavLink>
         </li>
       </ul>
     </nav>

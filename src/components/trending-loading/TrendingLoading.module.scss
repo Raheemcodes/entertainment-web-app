@@ -1,0 +1,26 @@
+@use '@/shared/shared' as *;
+
+.list {
+  @include display-flex();
+  width: 100%;
+  list-style: none;
+  gap: toRem(16);
+
+  @include breakpoint($md) {
+    gap: toRem(40);
+  }
+}
+
+.item {
+  position: relative;
+  width: toRem(240);
+  height: toRem(140);
+  border-radius: toRem(8);
+  flex-shrink: 0;
+  overflow: hidden;
+
+  @include breakpoint($md) {
+    width: toRem(470);
+    height: toRem(230);
+  }
+}
