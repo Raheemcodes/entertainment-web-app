@@ -28,6 +28,7 @@ const LoginPage = (): JSX.Element => {
               placeholder='Email address'
               ref={email.ref}
               required
+              autoComplete='email'
             />
             <div className={classes['error-msg']}>Invalid Email</div>
           </InputField>
@@ -37,6 +38,7 @@ const LoginPage = (): JSX.Element => {
               type='password'
               name='password'
               placeholder='Password'
+              autoComplete='current-password'
               ref={password.ref}
               pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
             />

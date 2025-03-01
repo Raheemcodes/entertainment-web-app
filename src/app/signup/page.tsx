@@ -29,6 +29,7 @@ const SignupPage = (): JSX.Element => {
               placeholder='Email address'
               ref={email.ref}
               required
+              autoComplete='email'
             />
             <div className={classes['error-msg']}>Invalid Email</div>
           </InputField>
@@ -41,6 +42,7 @@ const SignupPage = (): JSX.Element => {
               ref={password.ref}
               required
               pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+              autoComplete='new-password'
             />
             <div className={classes['error-msg']}>Strong Password</div>
           </InputField>
@@ -53,6 +55,7 @@ const SignupPage = (): JSX.Element => {
               ref={confirmPassword.ref}
               required
               pattern={`^${password.value}$`}
+              autoComplete='new-password'
             />
             <div className={classes['error-msg']}>Password mismatch</div>
           </InputField>

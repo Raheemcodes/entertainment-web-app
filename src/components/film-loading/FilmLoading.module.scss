@@ -1,0 +1,135 @@
+@use '@/shared/shared' as *;
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: toRem(16);
+
+  @include breakpoint($md) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: toRem(24) toRem(30);
+  }
+  @include breakpoint(toRem(1440)) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: toRem(32) toRem(40);
+  }
+}
+
+.item {
+  @include column-flex();
+  gap: toRem(8);
+  width: 100%;
+}
+
+.img-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 164/110;
+  border-radius: toRem(8);
+
+  @include breakpoint($md) {
+    aspect-ratio: 220/140;
+  }
+
+  @include breakpoint(toRem(1440)) {
+    aspect-ratio: 280/174;
+  }
+}
+
+.content {
+  @include column-flex();
+  gap: toRem(4);
+
+  @include breakpoint($md) {
+    left: toRem(24);
+    bottom: toRem(24);
+  }
+}
+
+.details {
+  @include display-flex();
+  align-items: center;
+  gap: toRem(8);
+}
+
+.year,
+.type,
+.rating {
+  font-family: 'Outfit', serif;
+  font-size: toRem(11);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  color: var(--pure-white);
+  opacity: 0.75;
+
+  @include breakpoint($md) {
+    font-size: toRem(13);
+  }
+}
+
+.type {
+  @include centered();
+  gap: toRem(6);
+
+  .icon {
+    display: flex;
+    width: toRem(12);
+  }
+}
+
+.circle {
+  display: flex;
+  width: toRem(3);
+  height: toRem(3);
+}
+
+.title {
+  align-self: flex-start;
+  font-family: 'Outfit', serif;
+  font-size: toRem(14);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--pure-white);
+
+  @include breakpoint($md) {
+    font-size: toRem(18);
+  }
+}
+
+.bookmark-container {
+  @include centered();
+  width: toRem(32);
+  height: toRem(32);
+  position: absolute;
+  top: toRem(8);
+  right: toRem(8);
+  background-color: rgba(16, 20, 30, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include hover(none, 0s) {
+    .bookmark {
+      svg > path {
+        fill: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  @include breakpoint($md) {
+    top: toRem(16);
+    right: toRem(24);
+  }
+}
+
+.bookmark {
+  display: flex;
+  width: toRem(12);
+
+  svg > path {
+    fill: #0000;
+    @include transition(fill, 0.3s);
+  }
+}

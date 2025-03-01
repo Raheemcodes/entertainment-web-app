@@ -1,11 +1,11 @@
 import { JSX } from 'react';
-import classes from './RecommendedItem.module.scss';
+import classes from './Film.module.scss';
 import Image from 'next/image';
 import CicleIcon from '@/components/icons/CircleIcon';
 import MoviesCategoryIcon from '@/components/icons/MoviesCategoryIcon';
 import BookmarkIcon from '@/components/icons/BookmarkIcon';
 
-const RecommendedItem = (): JSX.Element => {
+const Film = (): JSX.Element => {
   return (
     <li className={classes['item']}>
       <div className={classes['img-container']}>
@@ -65,4 +65,4 @@ const RecommendedItem = (): JSX.Element => {
   );
 };
 
-export default RecommendedItem;
+export default Film;

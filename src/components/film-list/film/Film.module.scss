@@ -2,7 +2,7 @@
 
 .item {
   @include column-flex();
-  gap: 8px;
+  gap: toRem(8);
   width: 100%;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   position: relative;
   width: 100%;
-  border-radius: 8px;
+  border-radius: toRem(8);
   background-color: lightgrey;
   overflow: hidden;
 

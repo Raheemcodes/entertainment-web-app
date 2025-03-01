@@ -1,26 +1,11 @@
 @use '@/shared/shared' as *;
 
-.container {
+.section {
   @include column-flex();
-  gap: toRem(24);
-  padding: 0 toRem(16);
-  overflow-x: hidden;
+  gap: toRem(16);
 
   @include breakpoint($md) {
-    gap: toRem(40);
-    padding: 0 toRem(24);
-  }
-  @include breakpoint(toRem(1440)) {
-    padding: 0 toRem(36);
-  }
-
-  section {
-    @include column-flex();
-    gap: toRem(16);
-
-    @include breakpoint($md) {
-      gap: toRem(24);
-    }
+    gap: toRem(24);
   }
 }
 
@@ -32,6 +17,7 @@
   line-height: normal;
   letter-spacing: toRem(-0.312);
   color: var(--pure-white, #fff);
+  align-self: flex-start;
 
   @include breakpoint($md) {
     font-size: toRem(32);
