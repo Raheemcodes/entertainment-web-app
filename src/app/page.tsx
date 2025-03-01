@@ -2,7 +2,8 @@ import FilmList from '@/components/film-list/FilmList';
 import TrendingList from '@/components/trending-list/TrendingList';
 import classes from './page.module.scss';
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 10_000));
   return (
     <>
       <section className={classes['section']} id='trending'>
