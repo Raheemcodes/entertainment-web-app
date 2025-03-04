@@ -1,14 +1,14 @@
-import { FormEventHandler, PropsWithChildren, Ref, RefObject } from 'react';
+import { PropsWithChildren, Ref } from 'react';
 import classes from './AuthForm.module.scss';
 
 type AuthFormType = PropsWithChildren<{
   ref: Ref<HTMLFormElement>;
-  onSubmit?: FormEventHandler;
+  action: (formData: FormData) => void;
 }>;
 
-const AuthForm = ({ children, ref, onSubmit }: AuthFormType) => {
+const AuthForm = ({ children, ref, action }: AuthFormType) => {
   return (
-    <form className={classes['form']} ref={ref} onSubmit={onSubmit}>
+    <form className={classes['form']} ref={ref} action={action}>
       {children}
     </form>
   );
