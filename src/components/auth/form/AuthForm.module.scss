@@ -23,7 +23,7 @@
 
 .form-field {
   @include column-flex();
-  margin: toRem(40) 0;
+  margin: toRem(40) 0 0;
   gap: toRem(32);
 }
 
@@ -75,18 +75,23 @@
 
   .error-msg {
     display: none;
-    color: var(--red);
-    font-feature-settings: 'liga' off, 'clig' off;
-
-    /* Body (S) */
-    font-family: 'Outfit', serif;
-    font-size: toRem(13);
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    flex-shrink: 0;
+    margin: 0;
     margin-top: toRem(2);
   }
+}
+
+.error-msg {
+  color: var(--red);
+  font-feature-settings: 'liga' off, 'clig' off;
+
+  /* Body (S) */
+  font-family: 'Outfit', serif;
+  font-size: toRem(14);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  flex-shrink: 0;
+  margin: toRem(10) toRem(4) toRem(16);
 }
 
 .ps {

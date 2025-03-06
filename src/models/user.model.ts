@@ -1,10 +1,11 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 
 export interface IUser {
   email: string;
   password: string;
   resetToken?: string;
   resetTokenExpiration?: Date;
+  bookmark: string[];
 }
 
 const userSchema = new Schema<IUser>({
@@ -12,7 +13,8 @@ const userSchema = new Schema<IUser>({
   password: { type: String, required: true },
   resetToken: String,
   resetTokenExpiration: Date,
+  bookmark: { type: [String], required: true, default: [] },
 });
 
-const UserModel = model<IUser>('User', userSchema);
-export default UserModel;
+const User = models.User || model<IUser>('User', userSchema);
+export default User;

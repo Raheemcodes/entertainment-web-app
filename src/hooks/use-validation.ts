@@ -33,6 +33,7 @@ const useValidation = (className?: string, dependency?: string) => {
     ref: inputRef,
     value: inputValue,
     isValid,
+    setIsValid,
     isDirty,
     className: !isValid && isDirty ? className : '',
   };

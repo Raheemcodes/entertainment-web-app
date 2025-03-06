@@ -43,5 +43,5 @@ const filmSchema = new Schema<IFilm>({
   isTrending: { type: Boolean, required: true },
 });
 
-const FilmModel = model<IFilm>('Film', filmSchema);
-export default FilmModel;
+const Film = model<IFilm>('Film', filmSchema);
+export default Film;

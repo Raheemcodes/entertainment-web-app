@@ -7,12 +7,11 @@ import InputField from '@/components/auth/form/input-field/InputField';
 import AuthLayout from '@/components/auth/layout/AuthLayout';
 import SubmitButton from '@/components/submit-btn/SubmitButton';
 import useValidation from '@/hooks/use-validation';
-import { AuthError } from '@/models/error.model';
 import Link from 'next/link';
-import { JSX, useActionState, useRef } from 'react';
+import { JSX, useActionState, useEffect, useRef } from 'react';
 
-const initialState: { error: AuthError } = {
-  error: { email: '', password: '' },
+const initialState: { error: string } = {
+  error: '',
 };
 
 const SignupPage = (): JSX.Element => {
@@ -23,9 +22,12 @@ const SignupPage = (): JSX.Element => {
   const confirmPassword = useValidation('invalid', password.value);
   const formIsValid = formRef.current?.checkValidity();
 
-  const changeHandler = (element: any) => {
-    element.ref.current!.value = element.value;
-  };
+  useEffect(() => {
+    if (!!state?.error) {
+      email.setIsValid(false);
+      password.setIsValid(false);
+    }
+  }, [state]);
 
   return (
     <AuthLayout>
@@ -42,7 +44,7 @@ const SignupPage = (): JSX.Element => {
               required
               autoComplete='email'
               value={email.value}
-              onChange={() => changeHandler(email)}
+              onChange={() => {}}
             />
             <div className={classes['error-msg']}>Invalid Email</div>
           </InputField>
@@ -57,7 +59,7 @@ const SignupPage = (): JSX.Element => {
               pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
               autoComplete='new-password'
               value={password.value}
-              onChange={() => changeHandler(password)}
+              onChange={() => {}}
             />
             <div className={classes['error-msg']}>Strong Password</div>
           </InputField>
@@ -72,13 +74,20 @@ const SignupPage = (): JSX.Element => {
               pattern={`^${password.value}$`}
               autoComplete='new-password'
               value={confirmPassword.value}
-              onChange={() => changeHandler(confirmPassword)}
+              onChange={() => {}}
             />
             <div className={classes['error-msg']}>Password mismatch</div>
           </InputField>
         </div>
 
-        <SubmitButton disabled={!formIsValid}>
+        <div
+          className={classes['error-msg']}
+          style={{ opacity: !!state?.error ? '1' : '0' }}
+        >
+          {state?.error} Try again!
+        </div>
+
+        <SubmitButton disabled={!formIsValid || pending}>
           Signup to your account
         </SubmitButton>
 

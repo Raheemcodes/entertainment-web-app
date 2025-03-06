@@ -1,27 +1,42 @@
 'use server';
 
-import { AuthError } from '@/models/error.model';
+import { connectDatabase, disconnectDatabase } from '@/lib/mongo.lib';
+import User from '@/models/user.model';
 import { validateEmail, validatePassword } from '@/utils/validate.util';
+import bcrypt from 'bcryptjs';
+import { redirect } from 'next/navigation';
 
 export default async function signup(
-  prevState: { error: AuthError } | undefined,
+  prevState: { error: string } | undefined,
   formData: FormData
-) {
-  const error: AuthError = {
-    email: '',
-    password: '',
-  };
-
+): Promise<{ error: string } | undefined> {
   try {
-    const email = formData.get('email') as string | null;
-    const password = formData.get('password') as string | null;
+    let error: string = '';
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
 
-    console.log('Email:', email);
-    console.log('Password:', password);
+    if (!validateEmail(email!) || !validatePassword(password!)) {
+      error = 'Invalid email or password';
+      return { error };
+    }
 
-    if (validateEmail(email!)) error.email = 'Invalid email';
-    if (validatePassword(password!)) error.password = 'Invalid password';
+    await connectDatabase();
 
-    return { error };
-  } catch (error) {}
+    const user = await User.findOne({ email });
+
+    if (user) {
+      error = 'Invalid email or password';
+      return { error };
+    }
+
+    const hashedPassword = bcrypt.hash(password, 12);
+    const newUser = new User({ email, password: hashedPassword });
+    await newUser.save();
+
+    disconnectDatabase();
+    redirect('/');
+  } catch (error) {
+    console.error(error);
+    return { error: 'Error signing up.' };
+  }
 }
