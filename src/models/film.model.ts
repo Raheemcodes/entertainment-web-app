@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 
 export interface IFilm {
   title: string;
@@ -43,5 +43,5 @@ const filmSchema = new Schema<IFilm>({
   isTrending: { type: Boolean, required: true },
 });
 
-const Film = model<IFilm>('Film', filmSchema);
+const Film = models.Film || model<IFilm>('Film', filmSchema);
 export default Film;

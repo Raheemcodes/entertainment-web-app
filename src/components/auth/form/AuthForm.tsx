@@ -2,8 +2,8 @@ import { PropsWithChildren, Ref } from 'react';
 import classes from './AuthForm.module.scss';
 
 type AuthFormType = PropsWithChildren<{
-  ref: Ref<HTMLFormElement>;
-  action: (formData: FormData) => void;
+  ref?: Ref<HTMLFormElement>;
+  action?: (formData: FormData) => void;
 }>;
 
 const AuthForm = ({ children, ref, action }: AuthFormType) => {

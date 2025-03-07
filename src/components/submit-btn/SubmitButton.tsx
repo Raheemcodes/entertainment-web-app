@@ -4,9 +4,17 @@ import classess from './SubmitButton.module.scss';
 const SubmitButton = ({
   children,
   disabled,
-}: PropsWithChildren<{ disabled: boolean }>): JSX.Element => {
+  className = '',
+}: PropsWithChildren<{
+  disabled: boolean;
+  className?: string;
+}>): JSX.Element => {
   return (
-    <button className={classess.button} type='submit' disabled={disabled}>
+    <button
+      className={`${classess.button} ${className}`}
+      type='submit'
+      disabled={disabled}
+    >
       {children}
     </button>
   );

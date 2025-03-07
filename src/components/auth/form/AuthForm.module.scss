@@ -1,6 +1,7 @@
 @use '@/shared/shared' as *;
 
 .form {
+  @include column-flex();
   width: 100%;
   max-width: toRem(400);
   background: var(--semi-dark-blue);
@@ -9,8 +10,7 @@
 }
 
 .title {
-  color: var(--pure-white, #fff);
-  font-feature-settings: 'liga' off, 'clig' off;
+  align-self: flex-start;
 
   /* Heading (L) */
   font-family: 'Outfit', serif;
@@ -19,6 +19,9 @@
   font-weight: 300;
   line-height: normal;
   letter-spacing: toRem(-0.5);
+
+  color: var(--pure-white, #fff);
+  font-feature-settings: 'liga' off, 'clig' off;
 }
 
 .form-field {
@@ -95,18 +98,17 @@
 }
 
 .ps {
-  color: var(--pure-white);
-  font-feature-settings: 'liga' off, 'clig' off;
-  text-align: center;
-
   /* Body (M) */
   font-family: 'Outfit', serif;
   font-size: toRem(15);
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+  color: var(--pure-white);
+  font-feature-settings: 'liga' off, 'clig' off;
+  text-align: center;
 
-  margin-top: toRem(24);
+  margin: toRem(24) auto 0;
 
   .redirect-btn {
     color: var(--red);
@@ -123,6 +125,30 @@
 
     @include hover(all, 0.2s) {
       text-decoration-color: var(--red);
+    }
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(214, 9%, 31%);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  &.index {
+    &::after {
+      z-index: 2;
     }
   }
 }

@@ -8,13 +8,13 @@ import AuthLayout from '@/components/auth/layout/AuthLayout';
 import SubmitButton from '@/components/submit-btn/SubmitButton';
 import useValidation from '@/hooks/use-validation';
 import Link from 'next/link';
-import { JSX, useActionState, useEffect, useRef } from 'react';
+import { useActionState, useEffect, useRef } from 'react';
 
 const initialState: { error: string } = {
   error: '',
 };
 
-const SignupPage = (): JSX.Element => {
+const SignupPage = () => {
   const [state, formAction, pending] = useActionState(signup, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const email = useValidation('invalid');
