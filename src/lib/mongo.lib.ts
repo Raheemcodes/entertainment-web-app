@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 const { MONGO_USERNAME, MONGO_PASSWORD, MONGO_DB } = process.env;
 
+export const MONGO_URI = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.u4041.mongodb.net/${MONGO_DB}`;
+
 export const connectDatabase = async () => {
   try {
     await mongoose.connect(

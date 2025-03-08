@@ -1,5 +1,6 @@
 'use server';
 
+import { createAuthSession } from '@/lib/lucia.lib';
 import { connectDatabase, disconnectDatabase } from '@/lib/mongo.lib';
 import User from '@/models/user.model';
 import { validateEmail, validatePassword } from '@/utils/validate.util';
@@ -30,7 +31,8 @@ export default async function signup(
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
-    await User.create({ email, password: hashedPassword });
+    const newUser = await User.create({ email, password: hashedPassword });
+    await createAuthSession(newUser._id);
 
     disconnectDatabase();
     redirect('/');
