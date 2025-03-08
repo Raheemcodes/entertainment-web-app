@@ -31,7 +31,6 @@ export default async function login(
     }
 
     const doMatch = await bcrypt.compare(password, user.password);
-    console.log(doMatch);
 
     if (!doMatch) {
       error = 'Invalid email or password';

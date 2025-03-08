@@ -13,24 +13,12 @@ export default function Loading(): JSX.Element {
 
         <div className={classes['form-field']}>
           <InputField className='skeleton'>
-            <input
-              type='email'
-              name='email'
-              placeholder='Email address'
-              required
-              autoComplete='email'
-            />
+            <input type='email' name='email' autoComplete='email' />
             <div className={classes['error-msg']}>Invalid Email</div>
           </InputField>
 
           <InputField className='skeleton'>
-            <input
-              type='email'
-              name='email'
-              placeholder='Email address'
-              required
-              autoComplete='email'
-            />
+            <input type='email' name='email' autoComplete='email' />
             <div className={classes['error-msg']}>Invalid Email</div>
           </InputField>
         </div>
