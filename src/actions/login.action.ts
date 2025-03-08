@@ -7,7 +7,7 @@ import { validateEmail, validatePassword } from '@/utils/validate.util';
 import bcrypt from 'bcryptjs';
 import { redirect } from 'next/navigation';
 
-export default async function signup(
+export default async function login(
   prevState: { error: string } | undefined,
   formData: FormData
 ): Promise<{ error: string } | undefined> {
@@ -25,21 +25,26 @@ export default async function signup(
 
     const user = await User.findOne({ email });
 
-    if (user) {
+    if (!user) {
       error = 'Invalid email or password';
       return { error };
     }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
-    const newUser = await User.create({ email, password: hashedPassword });
-    await createAuthSession(newUser._id.toString());
+    const doMatch = await bcrypt.compare(password, user.password);
+    console.log(doMatch);
 
+    if (!doMatch) {
+      error = 'Invalid email or password';
+      return { error };
+    }
+
+    await createAuthSession(user._id.toString());
     disconnectDatabase();
     redirect('/');
   } catch (error: any) {
     if (error.message !== 'NEXT_REDIRECT') {
       console.error(error);
-      return { error: 'Error signing up.' };
+      return { error: 'Error logging in.' };
     }
     throw error;
   }
