@@ -32,9 +32,8 @@ export default async function signup(
 
     const hashedPassword = await bcrypt.hash(password, 12);
     const newUser = await User.create({ email, password: hashedPassword });
-    await createAuthSession(newUser._id.toString());
+    await createAuthSession(newUser._id);
 
-    disconnectDatabase();
     redirect('/');
   } catch (error: any) {
     if (error.message !== 'NEXT_REDIRECT') {

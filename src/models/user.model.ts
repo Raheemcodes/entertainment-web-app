@@ -1,4 +1,4 @@
-import { Schema, model, models } from 'mongoose';
+import { Model, Schema, model, models } from 'mongoose';
 
 export interface IUser {
   email: string;
@@ -12,5 +12,6 @@ const userSchema = new Schema<IUser>({
   bookmark: { type: [String], required: true, default: [] },
 });
 
-const User = models.User || model<IUser>('User', userSchema);
+const User = (models.User as Model<IUser>) || model<IUser>('User', userSchema);
+
 export default User;

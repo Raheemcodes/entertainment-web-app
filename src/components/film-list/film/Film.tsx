@@ -1,45 +1,43 @@
-import { JSX } from 'react';
-import classes from './Film.module.scss';
-import Image from 'next/image';
+import BookmarkButton from '@/components/bookmark-button/BookmarkButton';
 import CicleIcon from '@/components/icons/CircleIcon';
 import MoviesCategoryIcon from '@/components/icons/MoviesCategoryIcon';
-import BookmarkIcon from '@/components/icons/BookmarkIcon';
+import SeriesCategoryIcon from '@/components/icons/SeriesCategoryIcon';
+import { IFilm } from '@/models/film.model';
+import Image from 'next/image';
+import { JSX } from 'react';
+import classes from './Film.module.scss';
 
-const Film = (): JSX.Element => {
+const Film = ({ film }: { film: IFilm }): JSX.Element => {
   return (
     <li className={classes['item']}>
       <div className={classes['img-container']}>
         <Image
-          src={'/assets/thumbnails/the-great-lands/regular/small.jpg'}
+          src={film.thumbnail.regular.small}
           width={164}
           height={110}
-          alt='The Great Lands'
+          alt={film.title}
         />
         <Image
           className={classes['medium']}
-          src={'/assets/thumbnails/the-great-lands/regular/medium.jpg'}
+          src={film.thumbnail.regular.medium}
           width={220}
           height={140}
-          alt='The Great Lands'
+          alt={film.title}
         />
         <Image
           className={classes['large']}
-          src={'/assets/thumbnails/the-great-lands/regular/large.jpg'}
+          src={film.thumbnail.regular.large}
           width={280}
           height={174}
-          alt='The Great Lands'
+          alt={film.title}
         />
 
-        <div className={classes['bookmark-container']}>
-          <div className={classes['bookmark']}>
-            <BookmarkIcon />
-          </div>
-        </div>
+        <BookmarkButton isBookmarked={film.isBookmarked} />
       </div>
 
       <div className={classes['content']}>
         <div className={classes['details']}>
-          <div className={classes['year']}>2019</div>
+          <div className={classes['year']}>{film.year}</div>
 
           <div className={classes['circle']}>
             <CicleIcon />
@@ -47,19 +45,23 @@ const Film = (): JSX.Element => {
 
           <div className={classes['type']}>
             <span className={classes['icon']}>
-              <MoviesCategoryIcon />
+              {film.category == 'Movie' ? (
+                <MoviesCategoryIcon />
+              ) : (
+                <SeriesCategoryIcon />
+              )}
             </span>
 
-            <span>Movie</span>
+            <span>{film.category}</span>
           </div>
 
           <div className={classes['circle']}>
             <CicleIcon />
           </div>
 
-          <div className={classes['rating']}>E</div>
+          <div className={classes['rating']}>{film.rating}</div>
         </div>
-        <div className={classes['title']}>The Great Lands</div>
+        <div className={classes['title']}>{film.title}</div>
       </div>
     </li>
   );

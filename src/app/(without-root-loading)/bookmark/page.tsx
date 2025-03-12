@@ -1,8 +1,8 @@
 import FilmList from '@/components/film-list/FilmList';
 import { JSX } from 'react';
-import classes from '../page.module.scss';
+import classes from '../../page.module.scss';
 
-export default function BookmarkPage(): JSX.Element {
+export default async function BookmarkPage(): Promise<JSX.Element> {
   return (
     <>
       <section className={classes['section']} id='movies'>

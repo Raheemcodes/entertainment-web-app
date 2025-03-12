@@ -108,38 +108,3 @@
     font-size: toRem(18);
   }
 }
-
-.bookmark-container {
-  @include centered();
-  width: toRem(32);
-  height: toRem(32);
-  position: absolute;
-  top: toRem(8);
-  right: toRem(8);
-  background-color: rgba(16, 20, 30, 0.5);
-  border-radius: 50%;
-  cursor: pointer;
-
-  @include hover(none, 0s) {
-    .bookmark {
-      svg > path {
-        fill: rgba(255, 255, 255, 0.3);
-      }
-    }
-  }
-
-  @include breakpoint($md) {
-    top: toRem(16);
-    right: toRem(24);
-  }
-}
-
-.bookmark {
-  display: flex;
-  width: toRem(12);
-
-  svg > path {
-    fill: #0000;
-    @include transition(fill, 0.3s);
-  }
-}

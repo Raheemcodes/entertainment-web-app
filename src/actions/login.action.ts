@@ -37,8 +37,7 @@ export default async function login(
       return { error };
     }
 
-    await createAuthSession(user._id.toString());
-    disconnectDatabase();
+    await createAuthSession(user._id);
     redirect('/');
   } catch (error: any) {
     if (error.message !== 'NEXT_REDIRECT') {

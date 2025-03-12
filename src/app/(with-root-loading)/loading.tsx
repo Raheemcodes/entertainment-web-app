@@ -1,6 +1,7 @@
 import FilmLoading from '@/components/film-loading/FilmLoading';
 import { JSX } from 'react';
 import classes from '../page.module.scss';
+import TrendingLoading from '@/components/trending-loading/TrendingLoading';
 
 export default function Loading(): JSX.Element {
   return (
@@ -10,10 +11,10 @@ export default function Loading(): JSX.Element {
           className={`${classes['title']} skeleton`}
           style={{ display: 'inline-block' }}
         >
-          Bookmarked TV Series
+          Trending
         </h2>
 
-        <FilmLoading />
+        <TrendingLoading />
       </section>
 
       <section className={classes['section']} id='recommended'>
@@ -21,7 +22,7 @@ export default function Loading(): JSX.Element {
           className={`${classes['title']} skeleton`}
           style={{ display: 'inline-block' }}
         >
-          Bookmarked TV Series
+          Recommended for you
         </h2>
 
         <FilmLoading />

@@ -1,6 +1,6 @@
 import FilmLoading from '@/components/film-loading/FilmLoading';
 import { JSX } from 'react';
-import classes from '../page.module.scss';
+import classes from '../../page.module.scss';
 
 export default function Loading(): JSX.Element {
   return (

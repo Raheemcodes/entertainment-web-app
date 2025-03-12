@@ -1,7 +1,7 @@
 import FilmList from '@/components/film-list/FilmList';
 import { SearchParams } from 'next/dist/server/request/search-params';
 import { JSX } from 'react';
-import classes from '../page.module.scss';
+import classes from '../../page.module.scss';
 
 export default async function SearchPage({
   searchParams,
