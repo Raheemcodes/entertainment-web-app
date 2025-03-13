@@ -16,6 +16,7 @@ export default function NavLink({
     <Link
       href={href}
       className={`${classes['link']} ${isActive ? classes['active'] : ''}`}
+      as={href}
     >
       {children}
     </Link>

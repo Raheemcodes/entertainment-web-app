@@ -1,12 +1,18 @@
 @use '@/shared/shared' as *;
 
-.bookmark-container {
-  @include centered();
+.bookmark-form {
+  display: flex;
   width: toRem(32);
   height: toRem(32);
   position: absolute;
   top: toRem(8);
   right: toRem(8);
+}
+
+.bookmark-button {
+  @include centered();
+  width: 100%;
+  height: 100%;
   background-color: rgba(16, 20, 30, 0.5);
   border-radius: 50%;
   cursor: pointer;

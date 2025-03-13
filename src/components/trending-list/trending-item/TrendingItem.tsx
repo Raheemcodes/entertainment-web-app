@@ -27,7 +27,7 @@ const TrendingItem = ({ film }: { film: IFilm }): JSX.Element => {
         <div className={classes['gradient']} />
       </div>
 
-      <BookmarkButton isBookmarked={film.isBookmarked} />
+      <BookmarkButton isBookmarked={film.isBookmarked} id={film._id!} />
 
       <div className={classes['content']}>
         <div className={classes['details']}>

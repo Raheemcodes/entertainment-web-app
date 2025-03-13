@@ -11,7 +11,7 @@ export const connectDatabase = async () => {
       console.log('Connected to the database');
     }
   } catch (error) {
-    throw new Error('Error connecting to the database');
+    console.error('Error connecting to the database');
   }
 };
 
@@ -20,6 +20,6 @@ export const disconnectDatabase = async () => {
     await mongoose.disconnect();
     console.log('Disconnected from the database');
   } catch (error) {
-    throw new Error('Error disconnecting from the database');
+    console.error('Error disconnecting from the database');
   }
 };

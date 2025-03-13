@@ -1,14 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyCookies } from './lib/cookies.lib';
 
+const authRoutes = ['/login', '/signup'];
+
 export default async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
   const isCookies: boolean = await verifyCookies();
-  if (!isCookies) return NextResponse.redirect(new URL('/login', req.nextUrl));
+  const isAuthRoute = authRoutes.includes(pathname);
+
+  if (!isCookies && !isAuthRoute)
+    return NextResponse.redirect(new URL('/login', req.nextUrl));
+
+  if (isCookies && isAuthRoute)
+    return NextResponse.redirect(new URL('/', req.nextUrl));
 
   return NextResponse.next();
 }
 
-// Routes Middleware should not run on
 export const config = {
-  matcher: ['/bookmark'],
+  matcher: ['/bookmark', '/login', '/signup'],
 };

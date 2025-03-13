@@ -3,14 +3,15 @@ import { JSX } from 'react';
 import Logo from '../icons/Logo';
 import classes from './Header.module.scss';
 import HeaderNav from './nav/HeaderNav';
+import Link from 'next/link';
 
 const Header = (): JSX.Element => {
   return (
     <header className={classes.header}>
       <div className={classes.container}>
-        <div className={classes.logo}>
+        <Link href='/login' className={classes.logo}>
           <Logo />
-        </div>
+        </Link>
 
         <HeaderNav />
 
