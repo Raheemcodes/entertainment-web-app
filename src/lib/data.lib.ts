@@ -1,7 +1,10 @@
 import Film, { IFilm } from '@/models/film.model';
-import { connectDatabase } from './mongo.lib';
+import User from '@/models/user.model';
 import { verifyAuth } from './lucia.lib';
-import User, { IUser } from '@/models/user.model';
+import { connectDatabase } from './mongo.lib';
+import { redirect } from 'next/navigation';
+import { Types } from 'mongoose';
+import IBookmark from '@/models/bookmark.model';
 
 const mutateBookmark = async (films: IFilm[]): Promise<IFilm[]> => {
   const { user: sessionUser } = await verifyAuth();
@@ -11,7 +14,7 @@ const mutateBookmark = async (films: IFilm[]): Promise<IFilm[]> => {
 
   if (user) {
     films.map((film) => {
-      film.isBookmarked = ids.includes(film._id!);
+      film.isBookmarked = ids.includes(new Types.ObjectId(film._id));
       return film;
     });
   }
@@ -57,4 +60,21 @@ export const getAllSeries = async (): Promise<IFilm[]> => {
   films = await mutateBookmark(films);
 
   return JSON.parse(JSON.stringify(films));
+};
+
+export const getAllBookmarks = async (): Promise<IBookmark> => {
+  const { user: sessionUser } = await verifyAuth();
+  if (!sessionUser) redirect('/login');
+
+  const user = await User.findById(sessionUser?.id).populate('bookmark');
+  if (!user) redirect('/login');
+
+  const result: IBookmark = { movies: [], series: [] };
+
+  (user.bookmark as any as IFilm[]).forEach((film) => {
+    if (film.category == 'Movie') result.movies.push(film);
+    else result.series.push(film);
+  });
+
+  return JSON.parse(JSON.stringify(result));
 };

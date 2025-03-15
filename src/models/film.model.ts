@@ -1,7 +1,7 @@
-import { Model, Schema, model, models } from 'mongoose';
+import { Model, Schema, Types, model, models } from 'mongoose';
 
 export interface IFilm {
-  _id?: string;
+  _id: Types.ObjectId;
   title: string;
   thumbnail: {
     trending?: {
@@ -43,10 +43,6 @@ const filmSchema = new Schema<IFilm>({
   isBookmarked: { type: Boolean, required: true },
   isTrending: { type: Boolean, required: true },
 });
-
-filmSchema.methods.mutateBookmark = function (ids: string[]) {
-  console.log(this.document);
-};
 
 const Film = (models?.Film as Model<IFilm>) || model<IFilm>('Film', filmSchema);
 export default Film;
