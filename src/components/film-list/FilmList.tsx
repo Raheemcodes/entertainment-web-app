@@ -7,7 +7,7 @@ const FilmList = ({ films }: { films: IFilm[] }): JSX.Element => {
   return (
     <ul className={classes['list']}>
       {films.map((film) => (
-        <Film film={film} key={film._id} />
+        <Film film={film} key={film._id.toString()} />
       ))}
     </ul>
   );

@@ -6,7 +6,7 @@ import MoviesCategoryIcon from '../icons/MoviesCategoryIcon';
 export default function FilmLoading(): JSX.Element {
   return (
     <ul className={classes['list']}>
-      {[...Array(20)].map((_, index) => (
+      {[...Array(15)].map((_, index) => (
         <li key={index} className={classes['item']}>
           <div className={`${classes['img-container']} skeleton`}></div>
 

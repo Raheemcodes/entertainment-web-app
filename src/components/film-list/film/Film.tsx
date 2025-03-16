@@ -32,7 +32,10 @@ const Film = ({ film }: { film: IFilm }): JSX.Element => {
           alt={film.title}
         />
 
-        <BookmarkButton isBookmarked={film.isBookmarked} id={film._id!} />
+        <BookmarkButton
+          isBookmarked={film.isBookmarked}
+          id={film._id.toString()}
+        />
       </div>
 
       <div className={classes['content']}>

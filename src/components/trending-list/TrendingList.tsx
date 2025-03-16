@@ -12,7 +12,7 @@ const TrendingList = ({ films }: { films: IFilm[] }): JSX.Element => {
   return (
     <ul className={classes['list']} ref={swiper.ref}>
       {films.map((film) => (
-        <TrendingItem film={film} key={film._id} />
+        <TrendingItem film={film} key={film._id.toString()} />
       ))}
     </ul>
   );

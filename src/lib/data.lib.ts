@@ -69,9 +69,12 @@ export const getAllBookmarks = async (): Promise<IBookmark> => {
   const user = await User.findById(sessionUser?.id).populate('bookmark');
   if (!user) redirect('/login');
 
+  let films: IFilm[] = user.bookmark as any as IFilm[];
+  films = await mutateBookmark(films);
+
   const result: IBookmark = { movies: [], series: [] };
 
-  (user.bookmark as any as IFilm[]).forEach((film) => {
+  films.forEach((film) => {
     if (film.category == 'Movie') result.movies.push(film);
     else result.series.push(film);
   });
