@@ -1,6 +1,7 @@
-import { Model, Schema, Types, model, models } from 'mongoose';
+import { Document, Model, Schema, Types, model, models } from 'mongoose';
+const mongooseFuzzySearching = require('mongoose-fuzzy-searching');
 
-export interface IFilm {
+export interface IFilm extends Document {
   _id: Types.ObjectId;
   title: string;
   thumbnail: {
@@ -43,6 +44,8 @@ const filmSchema = new Schema<IFilm>({
   isBookmarked: { type: Boolean, required: true },
   isTrending: { type: Boolean, required: true },
 });
+
+filmSchema.plugin(mongooseFuzzySearching, { fields: ['title'] });
 
 const Film = (models?.Film as Model<IFilm>) || model<IFilm>('Film', filmSchema);
 export default Film;

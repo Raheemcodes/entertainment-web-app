@@ -81,3 +81,12 @@ export const getAllBookmarks = async (): Promise<IBookmark> => {
 
   return JSON.parse(JSON.stringify(result));
 };
+
+export const getSearch = async (key: string | string[]): Promise<IFilm[]> => {
+  await connectDatabase();
+
+  let films: IFilm[] = await (Film as any).fuzzySearch(key).lean();
+  films = await mutateBookmark(films);
+
+  return JSON.parse(JSON.stringify(films));
+};
