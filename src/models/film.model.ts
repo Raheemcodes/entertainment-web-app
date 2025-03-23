@@ -1,5 +1,5 @@
 import { Document, Model, Schema, Types, model, models } from 'mongoose';
-const mongooseFuzzySearching = require('mongoose-fuzzy-searching');
+import mongooseFuzzySearching from 'mongoose-fuzzy-searching';
 
 export interface IFilm extends Document {
   _id: Types.ObjectId;
