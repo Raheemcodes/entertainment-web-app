@@ -4,6 +4,16 @@ import { JSX } from 'react';
 import classes from '../../page.module.scss';
 import { IFilm } from '@/models/film.model';
 import { getSearch } from '@/lib/data.lib';
+import { Metadata } from 'next';
+
+export const generateMetadata = async ({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}): Promise<Metadata> => {
+  const { key } = await searchParams;
+  return { title: `Entertainment App - Search for '${key}'` };
+};
 
 export default async function SearchPage({
   searchParams,

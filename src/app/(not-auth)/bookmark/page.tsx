@@ -2,6 +2,11 @@ import BookmarkedFilmList from '@/components/film-list/BookmarkedFilmList';
 import { getAllBookmarks } from '@/lib/data.lib';
 import { JSX } from 'react';
 import classes from '../../page.module.scss';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Entertainment App - Bookmark',
+};
 
 export default async function BookmarkPage(): Promise<JSX.Element> {
   const { movies, series } = await getAllBookmarks();
