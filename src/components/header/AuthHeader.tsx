@@ -1,11 +1,11 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import { JSX } from 'react';
 import Logo from '../icons/Logo';
 import classes from './Header.module.scss';
 import HeaderNav from './nav/HeaderNav';
-import Avatar from './avatar';
+import Link from 'next/link';
 
-const Header = async (): Promise<JSX.Element> => {
+const AuthHeader = (): JSX.Element => {
   return (
     <header className={classes.header}>
       <div className={classes.container}>
@@ -15,10 +15,17 @@ const Header = async (): Promise<JSX.Element> => {
 
         <HeaderNav />
 
-        <Avatar />
+        <Link className={classes.avatar} href='/logout'>
+          <Image
+            src='/images/image-avatar.png'
+            width={80}
+            height={80}
+            alt='Avatar'
+          />
+        </Link>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default AuthHeader;

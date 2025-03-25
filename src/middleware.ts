@@ -7,16 +7,15 @@ export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const isCookies: boolean = await verifyCookies();
   const isAuthRoute = authRoutes.includes(pathname);
+  const isLogoutRoute = pathname === '/logout';
+
+  if ((isCookies && isAuthRoute) || (!isCookies && isLogoutRoute))
+    return NextResponse.redirect(new URL('/', req.nextUrl));
 
   if (!isCookies && !isAuthRoute)
     return NextResponse.redirect(new URL('/login', req.nextUrl));
-
-  if (isCookies && isAuthRoute)
-    return NextResponse.redirect(new URL('/', req.nextUrl));
-
-  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/bookmark', '/login', '/signup'],
+  matcher: ['/bookmark', '/login', '/signup', '/logout'],
 };

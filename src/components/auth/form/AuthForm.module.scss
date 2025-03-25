@@ -7,6 +7,10 @@
   background: var(--semi-dark-blue);
   padding: toRem(24) toRem(24) toRem(32);
   border-radius: toRem(10);
+
+  @include breakpoint($md) {
+    border-radius: toRem(20);
+  }
 }
 
 .title {

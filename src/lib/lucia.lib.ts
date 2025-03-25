@@ -36,6 +36,11 @@ const createSessionCookie = async (sessionId: string): Promise<void> => {
   await setCookie(sessionCookie);
 };
 
+const createBlankSessionCookie = async (): Promise<void> => {
+  const sessionCookie: Cookie = lucia.createBlankSessionCookie();
+  await setCookie(sessionCookie);
+};
+
 export const createAuthSession = async (
   userId: Types.ObjectId | string
 ): Promise<void> => {
@@ -73,11 +78,20 @@ export const verifyAuth = async () => {
   try {
     if (session && session.fresh) await createAuthSession(session.id);
 
-    if (!session) {
-      const sessionCookie: Cookie = lucia.createBlankSessionCookie();
-      await setCookie(sessionCookie);
-    }
+    if (!session) await createBlankSessionCookie();
   } catch {}
 
   return result;
+};
+
+export const destroySession = async () => {
+  const { session } = await verifyAuth();
+
+  if (!session)
+    return {
+      error: 'Unauthorized!',
+    };
+
+  await lucia.invalidateSession(session.id);
+  await createBlankSessionCookie();
 };

@@ -1,7 +1,7 @@
 'use server';
 
 import { createAuthSession } from '@/lib/lucia.lib';
-import { connectDatabase, disconnectDatabase } from '@/lib/mongo.lib';
+import { connectDatabase } from '@/lib/mongo.lib';
 import User from '@/models/user.model';
 import { validateEmail, validatePassword } from '@/utils/validate.util';
 import bcrypt from 'bcryptjs';
