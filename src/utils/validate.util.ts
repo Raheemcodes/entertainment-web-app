@@ -4,9 +4,10 @@ export const validateEmail = (email: string) => {
   return validator.isEmail(email);
 };
 
-export const validatePassword = (password: string) => {
-  return validator.isStrongPassword(password);
-};
+const validatePassword = (p: string) =>
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~])(?!.*(.)\1{2})[A-Za-z\d@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~]{8,}$/.test(
+    p
+  );
 export const escapeRegExp = (string: string) => {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 };
