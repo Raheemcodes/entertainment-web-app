@@ -4,7 +4,7 @@ export const validateEmail = (email: string) => {
   return validator.isEmail(email);
 };
 
-const validatePassword = (p: string) =>
+export const validatePassword = (p: string) =>
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~])(?!.*(.)\1{2})[A-Za-z\d@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~]{8,}$/.test(
     p
   );
