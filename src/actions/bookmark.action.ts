@@ -29,7 +29,7 @@ export const toggleBookmark = async (
       );
     } else user.bookmark.push(objectId);
 
-    await user.save();
+    await user?.save();
 
     return { added: user.bookmark.includes(objectId), error: '' };
   } catch (err) {

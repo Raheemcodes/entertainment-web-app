@@ -1,8 +1,8 @@
-import { Model, model, models, Schema } from 'mongoose';
+import { Model, model, models, Schema, Document } from 'mongoose';
 
-export interface ISession {
+export interface ISession extends Document {
   _id: string;
-  user_id: String;
+  user_id: string;
   expires_at: Date;
 }
 

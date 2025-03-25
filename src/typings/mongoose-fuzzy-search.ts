@@ -1,5 +1,5 @@
 declare module 'mongoose-fuzzy-searching' {
-  import { Document, Query, Model, Schema } from 'mongoose';
+  import { Document, DocumentQuery, Model, Schema } from 'mongoose';
 
   export interface MongooseFuzzyOptions<T> {
     fields: (T extends Object ? keyof T : string)[];
@@ -10,7 +10,7 @@ declare module 'mongoose-fuzzy-searching' {
     fuzzySearch(
       search: String,
       callBack?: (err: any, data: Model<T, QueryHelpers>[]) => void
-    ): Query<T[], T, QueryHelpers>;
+    ): DocumentQuery<T[], T, QueryHelpers>;
   }
 
   function fuzzyPlugin<T>(

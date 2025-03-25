@@ -6,8 +6,8 @@ import { connectDatabase } from './mongo.lib';
 
 // Define the adapter
 const adapter = new MongodbAdapter(
-  mongoose.connection.collection('sessions'),
-  mongoose.connection.collection('users')
+  mongoose.connection.collection('sessions') as any,
+  mongoose.connection.collection('users') as any
 );
 
 const lucia = new Lucia(adapter, {
