@@ -177,13 +177,15 @@ const setPositionByIndex = () => {
     slideWidth * slider.children.length - gap - slider.clientWidth;
   const pontentialTranslate = currentIndex * -slideWidth;
 
-  if (currentIndex == 0) {
+  if (
+    currentIndex == 0 ||
+    (currentIndex > 0 && pontentialTranslate > -maxTranslate)
+  ) {
     currentTranslate = currentIndex * -slideWidth;
   } else if (pontentialTranslate < -maxTranslate) {
-    currentIndex = (maxTranslate - (maxTranslate % slideWidth)) / slideWidth;
+    currentIndex =
+      (maxTranslate - (maxTranslate % slideWidth)) / slideWidth + 1;
     currentTranslate = -maxTranslate;
-  } else if (currentIndex > 0 && currentIndex < lastSlide) {
-    currentTranslate = currentIndex * -slideWidth;
   }
 
   prevTranslate = currentTranslate;
