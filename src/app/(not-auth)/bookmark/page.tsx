@@ -13,17 +13,23 @@ export default async function BookmarkPage(): Promise<JSX.Element> {
 
   return (
     <>
-      <section className={classes['section']} id='movies'>
-        <h2 className={classes['title']}>Bookmarked Movies</h2>
+      {!movies.length && !series.length && <p>Bookmark emply</p>}
 
-        <BookmarkedFilmList films={movies} />
-      </section>
+      {!!movies.length && (
+        <section className={classes['section']} id='movies'>
+          <h2 className={classes['title']}>Bookmarked Movies</h2>
 
-      <section className={classes['section']} id='movies'>
-        <h2 className={classes['title']}>Bookmarked TV Series</h2>
+          <BookmarkedFilmList films={movies} />
+        </section>
+      )}
 
-        <BookmarkedFilmList films={series} />
-      </section>
+      {!!series.length && (
+        <section className={classes['section']} id='movies'>
+          <h2 className={classes['title']}>Bookmarked TV Series</h2>
+
+          <BookmarkedFilmList films={series} />
+        </section>
+      )}
     </>
   );
 }
