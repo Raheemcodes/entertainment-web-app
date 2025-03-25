@@ -3,7 +3,7 @@ import { JSX } from 'react';
 import Logo from '../icons/Logo';
 import classes from './Header.module.scss';
 import HeaderNav from './nav/HeaderNav';
-import Avatar from './avatar';
+import Avatar from './Avatar';
 
 const Header = async (): Promise<JSX.Element> => {
   return (
