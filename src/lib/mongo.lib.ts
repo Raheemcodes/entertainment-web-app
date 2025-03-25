@@ -6,7 +6,7 @@ export const MONGO_URI = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@clus
 export const connectDatabase = async () => {
   try {
     if (![1, 2].includes(mongoose.connection.readyState)) {
-      await mongoose.connect(MONGO_URI);
+      await mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 
       console.log('Connected to the database');
     }
