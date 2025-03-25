@@ -55,7 +55,7 @@ const LoginPage = (): JSX.Element => {
               placeholder='Password'
               autoComplete='current-password'
               ref={password.ref}
-              pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~])(?!.*(.)\1{2})[A-Za-z\d@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~]{8,}$"
               value={password.value}
               onChange={() => {}}
             />

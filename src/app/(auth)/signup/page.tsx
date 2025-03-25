@@ -7,6 +7,7 @@ import InputField from '@/components/auth/form/input-field/InputField';
 import AuthLayout from '@/components/auth/layout/AuthLayout';
 import SubmitButton from '@/components/submit-btn/SubmitButton';
 import useValidation from '@/hooks/use-validation';
+import { escapeRegExp } from '@/utils/validate.util';
 import Link from 'next/link';
 import { useActionState, useEffect, useRef } from 'react';
 
@@ -56,7 +57,8 @@ const SignupPage = () => {
               placeholder='Password'
               ref={password.ref}
               required
-              pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~])(?!.*(.)\1{2})[A-Za-z\d@$!%*?&+#^()_\-=[\]{}|;:',.<>/`~]{8,}$"
+              title='Must contain: 1 uppercase, 1 lowercase, 1 number, 1 special character, and no 3 repeating characters in a row'
               autoComplete='new-password'
               value={password.value}
               onChange={() => {}}
@@ -71,7 +73,7 @@ const SignupPage = () => {
               placeholder='Repeat Password'
               ref={confirmPassword.ref}
               required
-              pattern={`^${password.value}$`}
+              pattern={escapeRegExp(password.value)}
               autoComplete='new-password'
               value={confirmPassword.value}
               onChange={() => {}}

@@ -7,3 +7,6 @@ export const validateEmail = (email: string) => {
 export const validatePassword = (password: string) => {
   return validator.isStrongPassword(password);
 };
+export const escapeRegExp = (string: string) => {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
