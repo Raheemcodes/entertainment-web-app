@@ -14,7 +14,7 @@ export default async function BookmarkPage(): Promise<JSX.Element> {
   return (
     <>
       {!movies.length && !series.length && (
-        <p className={classes['title']}>Bookmark emply</p>
+        <p className={classes['title']}>Bookmark empty!</p>
       )}
 
       {!!movies.length && (
