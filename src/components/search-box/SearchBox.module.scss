@@ -21,6 +21,7 @@
     padding: toRem(4) 0 toRem(8);
     outline: none;
     border: none;
+    border-radius: 0;
     border-bottom: toRem(1) solid #0000;
     @include transition(border, 0.2s);
 
